@@ -8,16 +8,16 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 
 import io
 
-app= Flask(__name__)
+application= Flask(__name__)
 
 class DataStore():
     data1=None
     datadisplay=None
 data=DataStore()
 
-@app.route("/main",methods=["GET","POST"])
+@application.route("/main",methods=["GET","POST"])
 
-@app.route("/",methods=["GET","POST"])
+@application.route("/",methods=["GET","POST"])
 def homepage():
 #kbn 2018/12/12-Start- Call value from HTML form
   #data1=main()
