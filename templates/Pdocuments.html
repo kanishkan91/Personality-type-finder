@@ -1,0 +1,78 @@
+<!-- documents.html -->
+
+<html>
+
+<head>
+<section>
+  <img class="mySlides" src="/static/Vertical.jpg"
+  style="height:50%" style="width:100%">
+  </section> 
+   <h1> Personality finder (developed using text analysis)</h1>
+   <p> Find your personality type using this python flask application that makes use of a text vectorizer to analyze
+    posts by individuals identifying as different personality types. The app will yield your top 5 personalities from the 
+    16 Myers Briggs personality types. Data downloaded from kaggle. By the way the paiting displayed here is "Vertical Flow" By I.Rice.Pereria.</p>
+    <p> Please note that the script might take a minute to run since it has to parse through over 8000 entries.
+</head>
+
+<form method="post" >
+    <input name="question1_field" placeholder="enter search term here">
+    <input type="submit">
+</form>
+
+
+
+<body>
+<style>
+.mySlides{
+  width: 80%;
+  height: 75%
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;  
+}
+
+.divider{
+    width:5px;
+    height:1px;
+    display:inline-block;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+</style>
+  <h2>Relevant personality types displayed below</h2>
+<table>
+  <tr>
+    <th>Type</th>
+    <th>SimiScore</th>
+    <th>Search Term</th>
+    <th>Rank</th>
+    <th>Introversion/Extraversion</th>
+    <th>Intuitive/Observant</th>
+    <th>Thinking/Feeling</th>
+    <th>Judging/Perceiving</th>
+    
+</tr>  
+{% for doc in docs %}
+<tr>
+<td>{{doc["type"]}}</td>
+<td>{{doc["Simiscore"]}}</td>
+<td>{{doc["Search Term"]}}</td>
+<td>{{doc["Rank"]}}</td>
+<td>{{doc["Introversion/Extraversion"]}}</td>
+<td>{{doc["Intuitive/Observant"]}}</td>
+<td>{{doc["Thinking/Feeling"]}}</td>
+<td>{{doc["Judging/Perceiving"]}}</td>
+
+</tr>
+{% endfor %}
+</table>
+
+
+</html>
