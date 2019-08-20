@@ -27,6 +27,7 @@ def homepage():
 #kbn 2018/12/12-End
   pd.set_option('display.max_rows', None)
   pd.set_option('display.max_columns', None)
+  pd.options.mode.chained_assignment = None
   datasource1 = pd.read_csv("Personalities.csv")
   datasource1 = pd.DataFrame(datasource1)
 
